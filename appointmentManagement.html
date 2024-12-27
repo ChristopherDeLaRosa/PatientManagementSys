@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management System - Appointment Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-teal-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Appointment Management</h1>
+            <p class="text-xl text-gray-600">Schedule and manage patient appointments</p>
+        </header>
+
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Upcoming Appointments</h2>
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 text-left">Patient</th>
+                            <th class="px-4 py-2 text-left">Doctor</th>
+                            <th class="px-4 py-2 text-left">Date</th>
+                            <th class="px-4 py-2 text-left">Time</th>
+                            <th class="px-4 py-2 text-left">Status</th>
+                            <th class="px-4 py-2 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-4 py-2">John Doe</td>
+                            <td class="px-4 py-2">Dr. Smith</td>
+                            <td class="px-4 py-2">2024-03-15</td>
+                            <td class="px-4 py-2">10:00 AM</td>
+                            <td class="px-4 py-2"><span class="bg-yellow-200 text-yellow-800 py-1 px-2 rounded-full text-sm">Pending</span></td>
+                            <td class="px-4 py-2">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded">
+                                    <i class="fas fa-edit mr-1"></i> Edit
+                                </button>
+                                <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded ml-2">
+                                    <i class="fas fa-trash-alt mr-1"></i> Cancel
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Schedule New Appointment</h2>
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="patient" class="block text-gray-700 font-semibold mb-2">Patient</label>
+                            <select id="patient" name="patient" class="w-full px-3 py-2 border rounded-lg">
+                                <option value="">Select Patient</option>
+                                <!-- Add patient options -->
+                            </select>
+                        </div>
+                        <div>
+                            <label for="doctor" class="block text-gray-700 font-semibold mb-2">Doctor</label>
+                            <select id="doctor" name="doctor" class="w-full px-3 py-2 border rounded-lg">
+                                <option value="">Select Doctor</option>
+                                <!-- Add doctor options -->
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-gray-700 font-semibold mb-2">Date</label>
+                            <input type="date" id="date" name="date" class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                        <div>
+                            <label for="time" class="block text-gray-700 font-semibold mb-2">Time</label>
+                            <input type="time" id="time" name="time" class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="reason" class="block text-gray-700 font-semibold mb-2">Reason for Visit</label>
+                            <textarea id="reason" name="reason" rows="3" class="w-full px-3 py-2 border rounded-lg"></textarea>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
+                            <i class="fas fa-calendar-plus mr-2"></i> Schedule Appointment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-12 text-center text-gray-600">
+        <p>&copy; 2024 Patient Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

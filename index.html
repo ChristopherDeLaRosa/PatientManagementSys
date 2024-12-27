@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema Gestor de Pacientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center font-sans">
+    <div class="w-[400px] bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-blue-500 text-white p-5 text-center text-2xl font-light">
+            Patient Management System
+        </div>
+        <div class="p-8">
+            <p style="color: rgb(255, 0, 0);">Puedes ingresar cualquier usuario y contraseña (para poder visualizar este proyecto)</p>
+            <br>
+            <form id="login-form">
+                <div class="mb-6">
+                    <input type="text" id="username" 
+                           class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                           placeholder="User" required>
+                </div>
+                <div class="mb-6">
+                    <input type="password" id="password" 
+                           class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                           placeholder="Password" required>
+                </div>
+                <button type="submit" id="loginButton"
+                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-full uppercase mb-3 transition-colors">
+                    Login
+                </button>
+                <button type="button"
+                        class="w-full border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-4 rounded-full uppercase transition-colors"
+                        onclick="openModal()">
+                    Sign Up
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registerModal" 
+         class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white rounded-lg w-full max-w-md mx-4">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h5 class="text-xl font-medium">New User Registration</h5>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="p-4">
+                <form id="registerForm">
+                    <div class="mb-4">
+                        <input type="text" id="regNombre" 
+                               class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                               placeholder="Name" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" id="regApellido" 
+                               class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                               placeholder="Last name" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" id="regCorreo" 
+                               class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                               placeholder="Email" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" id="regUsuario" 
+                               class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                               placeholder="Username" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" id="regConsultorio" 
+                               class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                               placeholder="Name of the practice" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" id="regPassword" 
+                               class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                               placeholder="Password" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" id="regConfirmPassword" 
+                               class="w-full border-b-2 border-gray-200 py-2 px-0 focus:border-blue-500 transition-colors"
+                               placeholder="Confirm Password" required>
+                    </div>
+                </form>
+            </div>
+            <div class="flex justify-end p-4 border-t space-x-2">
+                <button onclick="closeModal()"
+                        class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-colors">
+                    Close
+                </button>
+                <button onclick="registrarUsuario()"
+                        class="px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 rounded-md transition-colors">
+                    Register
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('registerModal').classList.remove('hidden');
+            document.getElementById('registerModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('registerModal').classList.add('hidden');
+            document.getElementById('registerModal').classList.remove('flex');
+        }
+
+        function registrarUsuario() {
+            alert('Función de registro. Implementar la lógica de backend.');
+        }
+
+        // Obtener el formulario y el botón de iniciar sesión
+        const loginForm = document.getElementById('login-form');
+        const loginButton = document.getElementById('loginButton');
+
+        // Prevenir el comportamiento por defecto del formulario al hacer submit
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+            window.location.href = "main.html";
+        });
+    </script>
+</body>
+</html>
